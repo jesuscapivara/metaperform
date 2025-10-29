@@ -1,217 +1,402 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MetaPerform - Seu Mapa Completo para a Performance Máxima</title>
-    <meta name="description" content="Transforme seus objetivos de fitness e nutrição em resultados reais. A plataforma completa para usuários focados e profissionais que buscam excelência.">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <meta
+      name="description"
+      content="Transforme seus objetivos de fitness e nutrição em resultados reais. A plataforma completa para usuários focados e profissionais que buscam excelência."
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="container">
-            <div class="navbar-content">
-                <div class="logo">
-                    <span class="logo-icon">⚡</span>
-                    <span class="logo-text">MetaPerform</span>
-                </div>
-                <div class="nav-links">
-                    <a href="#features" class="nav-link">Funcionalidades</a>
-                    <a href="#for-users" class="nav-link">Para Você</a>
-                    <a href="#for-professionals" class="nav-link">Para Profissionais</a>
-                    <a href="https://app.metaperform.com.br" class="nav-link nav-cta">Acessar o App</a>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+      <div class="container">
+        <div class="navbar-content">
+          <div class="logo">
+            <span class="logo-icon">⚡</span>
+            <span class="logo-text">MetaPerform</span>
+          </div>
+          <div class="nav-links">
+            <a href="#features" class="nav-link">Funcionalidades</a>
+            <a href="#for-users" class="nav-link">Para Você</a>
+            <a href="#for-professionals" class="nav-link">Para Profissionais</a>
+            <button
+              id="themeToggle"
+              class="theme-toggle"
+              onclick="toggleTheme()"
+              aria-label="Alternar tema"
+            >
+              <span id="themeToggleIcon" class="theme-toggle-icon">🌙</span>
+            </button>
+            <a href="https://app.metaperform.com.br" class="nav-link nav-cta"
+              >Acessar o App</a
+            >
+          </div>
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Menu mobile"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
         </div>
+      </div>
     </nav>
 
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#features" class="mobile-link">Funcionalidades</a>
-        <a href="#for-users" class="mobile-link">Para Você</a>
-        <a href="#for-professionals" class="mobile-link">Para Profissionais</a>
-        <a href="https://app.metaperform.com.br" class="mobile-link mobile-cta">Acessar o App</a>
+      <a href="#features" class="mobile-link">Funcionalidades</a>
+      <a href="#for-users" class="mobile-link">Para Você</a>
+      <a href="#for-professionals" class="mobile-link">Para Profissionais</a>
+      <button
+        id="themeToggleMobile"
+        class="theme-toggle mobile-link"
+        onclick="toggleTheme()"
+        style="margin-top: 1rem"
+      >
+        <span id="themeToggleIconMobile" class="theme-toggle-icon">🌙</span>
+        <span>Tema</span>
+      </button>
+      <a href="https://app.metaperform.com.br" class="mobile-link mobile-cta"
+        >Acessar o App</a
+      >
     </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">MetaPerform: O Seu Mapa Completo para a Performance Máxima</h1>
-                <p class="hero-subtitle">Transforme seus objetivos de fitness e nutrição em resultados reais. A plataforma completa para o usuário focado e o profissional que busca excelência.</p>
-                <div class="hero-buttons">
-                    <a href="https://app.metaperform.com.br" class="btn btn-primary btn-lg">Acessar o App</a>
-                    <a href="#for-professionals" class="btn btn-secondary btn-lg">Sou Profissional</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="image-placeholder">
-                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="400" height="400" fill="#E8F5E9"/>
-                        <circle cx="200" cy="150" r="80" fill="#00C853" opacity="0.1"/>
-                        <rect x="120" y="220" width="160" height="120" rx="10" fill="#00C853" opacity="0.05" stroke="#00C853" stroke-width="2"/>
-                        <circle cx="160" cy="260" r="20" fill="#00C853" opacity="0.3"/>
-                        <circle cx="240" cy="280" r="25" fill="#FF6F00" opacity="0.2"/>
-                        <text x="200" y="380" text-anchor="middle" font-size="16" fill="#00C853" font-weight="bold">Seu App de Performance</text>
-                    </svg>
-                </div>
-            </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title">
+            MetaPerform: O Seu Mapa Completo para a Performance Máxima
+          </h1>
+          <p class="hero-subtitle">
+            Transforme seus objetivos de fitness e nutrição em resultados reais.
+            A plataforma completa para o usuário focado e o profissional que
+            busca excelência.
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="https://app.metaperform.com.br"
+              class="btn btn-primary btn-lg"
+              >Acessar o App</a
+            >
+            <a href="#for-professionals" class="btn btn-secondary btn-lg"
+              >Sou Profissional</a
+            >
+          </div>
         </div>
+        <div class="hero-image">
+          <div class="image-placeholder">
+            <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+              <rect
+                width="400"
+                height="400"
+                fill="currentColor"
+                opacity="0.05"
+              />
+              <circle
+                cx="200"
+                cy="150"
+                r="80"
+                fill="currentColor"
+                opacity="0.1"
+              />
+              <rect
+                x="120"
+                y="220"
+                width="160"
+                height="120"
+                rx="10"
+                fill="currentColor"
+                opacity="0.05"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle
+                cx="160"
+                cy="260"
+                r="20"
+                fill="currentColor"
+                opacity="0.3"
+              />
+              <circle
+                cx="240"
+                cy="280"
+                r="25"
+                fill="currentColor"
+                opacity="0.2"
+              />
+              <text
+                x="200"
+                y="380"
+                text-anchor="middle"
+                font-size="16"
+                fill="currentColor"
+                font-weight="bold"
+              >
+                Seu App de Performance
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Trust Section -->
     <section class="trust-section">
-        <div class="container">
-            <h2>Mais do que um app, seu parceiro de resultados</h2>
-            <div class="trust-grid">
-                <div class="trust-card">
-                    <div class="trust-number">10K+</div>
-                    <div class="trust-label">Usuários Ativos</div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-number">500+</div>
-                    <div class="trust-label">Profissionais Parceiros</div>
-                </div>
-                <div class="trust-card">
-                    <div class="trust-number">98%</div>
-                    <div class="trust-label">Satisfação nas Metas</div>
-                </div>
-            </div>
+      <div class="container">
+        <h2>Mais do que um app, seu parceiro de resultados</h2>
+        <div class="trust-grid">
+          <div class="trust-card">
+            <div class="trust-number">10K+</div>
+            <div class="trust-label">Usuários Ativos</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-number">500+</div>
+            <div class="trust-label">Profissionais Parceiros</div>
+          </div>
+          <div class="trust-card">
+            <div class="trust-number">98%</div>
+            <div class="trust-label">Satisfação nas Metas</div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Dual Section: For Users and Professionals -->
     <section class="dual-section">
-        <div class="container">
-            <!-- For Users -->
-            <div id="for-users" class="dual-card users-card">
-                <div class="dual-content">
-                    <h2>Para Você, que Busca o Próximo Nível</h2>
-                    <p>Pare de adivinhar. O MetaPerform centraliza seu diário alimentar, treinos e suplementação, fornecendo <strong>insights detalhados</strong> para que cada passo seja estratégico. Deixe a hidratação e as metas complexas serem calculadas e acompanhadas automaticamente.</p>
-                    <a href="https://app.metaperform.com.br" class="btn btn-primary">Começar Minha Transformação</a>
-                </div>
-                <div class="dual-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="100" r="90" fill="#E8F5E9" stroke="#00C853" stroke-width="2"/>
-                        <path d="M 100 50 L 130 120 L 170 120 L 140 160 L 160 220 L 100 180 L 40 220 L 60 160 L 30 120 L 70 120 Z" fill="#00C853" opacity="0.8"/>
-                    </svg>
-                </div>
-            </div>
-
-            <!-- For Professionals -->
-            <div id="for-professionals" class="dual-card professionals-card">
-                <div class="dual-icon">
-                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="100" cy="100" r="90" fill="#FFF3E0" stroke="#FF6F00" stroke-width="2"/>
-                        <circle cx="100" cy="60" r="20" fill="#FF6F00" opacity="0.8"/>
-                        <rect x="80" y="90" width="40" height="50" fill="#FF6F00" opacity="0.8"/>
-                        <rect x="60" y="90" width="15" height="60" fill="#FF6F00" opacity="0.6"/>
-                        <rect x="125" y="90" width="15" height="60" fill="#FF6F00" opacity="0.6"/>
-                    </svg>
-                </div>
-                <div class="dual-content">
-                    <h2>Para Profissionais, Acompanhamento Sem Limites</h2>
-                    <p>Nutricionistas e Personal Trainers: Acompanhe o progresso, o humor e as estatísticas de uso de suplementos de seus clientes em tempo real. Use a ferramenta de <strong>Comentários Diretos</strong> para dar feedback imediato e garantir o engajamento máximo. A excelência no acompanhamento começa aqui.</p>
-                    <a href="https://app.metaperform.com.br" class="btn btn-secondary">Elevar o Nível do Meu Atendimento</a>
-                </div>
-            </div>
+      <div class="container">
+        <!-- For Users -->
+        <div id="for-users" class="dual-card users-card">
+          <div class="dual-content">
+            <h2>Para Você, que Busca o Próximo Nível</h2>
+            <p>
+              Pare de adivinhar. O MetaPerform centraliza seu diário alimentar,
+              treinos e suplementação, fornecendo
+              <strong>insights detalhados</strong> para que cada passo seja
+              estratégico. Deixe a hidratação e as metas complexas serem
+              calculadas e acompanhadas automaticamente.
+            </p>
+            <a href="https://app.metaperform.com.br" class="btn btn-primary"
+              >Começar Minha Transformação</a
+            >
+          </div>
+          <div class="dual-icon">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="100"
+                cy="100"
+                r="90"
+                fill="currentColor"
+                opacity="0.05"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <path
+                d="M 100 50 L 130 120 L 170 120 L 140 160 L 160 220 L 100 180 L 40 220 L 60 160 L 30 120 L 70 120 Z"
+                fill="currentColor"
+                opacity="0.8"
+              />
+            </svg>
+          </div>
         </div>
+
+        <!-- For Professionals -->
+        <div id="for-professionals" class="dual-card professionals-card">
+          <div class="dual-icon">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <circle
+                cx="100"
+                cy="100"
+                r="90"
+                fill="currentColor"
+                opacity="0.05"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <circle
+                cx="100"
+                cy="60"
+                r="20"
+                fill="currentColor"
+                opacity="0.8"
+              />
+              <rect
+                x="80"
+                y="90"
+                width="40"
+                height="50"
+                fill="currentColor"
+                opacity="0.8"
+              />
+              <rect
+                x="60"
+                y="90"
+                width="15"
+                height="60"
+                fill="currentColor"
+                opacity="0.6"
+              />
+              <rect
+                x="125"
+                y="90"
+                width="15"
+                height="60"
+                fill="currentColor"
+                opacity="0.6"
+              />
+            </svg>
+          </div>
+          <div class="dual-content">
+            <h2>Para Profissionais, Acompanhamento Sem Limites</h2>
+            <p>
+              Nutricionistas e Personal Trainers: Acompanhe o progresso, o humor
+              e as estatísticas de uso de suplementos de seus clientes em tempo
+              real. Use a ferramenta de
+              <strong>Comentários Diretos</strong> para dar feedback imediato e
+              garantir o engajamento máximo. A excelência no acompanhamento
+              começa aqui.
+            </p>
+            <a href="https://app.metaperform.com.br" class="btn btn-secondary"
+              >Elevar o Nível do Meu Atendimento</a
+            >
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-        <div class="container">
-            <h2>Funcionalidades Essenciais para um Desempenho Imbatível</h2>
-            <div class="features-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">📔</div>
-                    <h3>Diário Inteligente e Hidratação Personalizada</h3>
-                    <p>Registre refeições e exercícios. Receba um resumo diário e tenha a hidratação ideal calculada automaticamente com base no seu perfil.</p>
-                </div>
+      <div class="container">
+        <h2>Funcionalidades Essenciais para um Desempenho Imbatível</h2>
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon">📔</div>
+            <h3>Diário Inteligente e Hidratação Personalizada</h3>
+            <p>
+              Registre refeições e exercícios. Receba um resumo diário e tenha a
+              hidratação ideal calculada automaticamente com base no seu perfil.
+            </p>
+          </div>
 
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">🍽️</div>
-                    <h3>Cardápios e Metas Sob Medida</h3>
-                    <p>Crie cardápios completos para dias de treino e descanso. Estabeleça metas detalhadas de nutrição e performance, e acompanhe seu progresso de forma visual e motivadora.</p>
-                </div>
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon">🍽️</div>
+            <h3>Cardápios e Metas Sob Medida</h3>
+            <p>
+              Crie cardápios completos para dias de treino e descanso.
+              Estabeleça metas detalhadas de nutrição e performance, e acompanhe
+              seu progresso de forma visual e motivadora.
+            </p>
+          </div>
 
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">💊</div>
-                    <h3>Gestão de Suplementos e Estatísticas</h3>
-                    <p>Controle seu estoque de suplementos, monitore o uso e veja estatísticas detalhadas para otimizar seus custos e resultados.</p>
-                </div>
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon">💊</div>
+            <h3>Gestão de Suplementos e Estatísticas</h3>
+            <p>
+              Controle seu estoque de suplementos, monitore o uso e veja
+              estatísticas detalhadas para otimizar seus custos e resultados.
+            </p>
+          </div>
 
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="feature-icon">🛒</div>
-                    <h3>Listas de Compras e Controle de Custos</h3>
-                    <p>Gere listas de compras automaticamente a partir dos seus cardápios e gerencie os custos para manter seu planejamento financeiro e nutricional em dia.</p>
-                </div>
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon">🛒</div>
+            <h3>Listas de Compras e Controle de Custos</h3>
+            <p>
+              Gere listas de compras automaticamente a partir dos seus cardápios
+              e gerencie os custos para manter seu planejamento financeiro e
+              nutricional em dia.
+            </p>
+          </div>
 
-                <!-- Feature 5 -->
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Relatórios Analíticos e Insights de Humor</h3>
-                    <p>Tenha acesso a relatórios gerais com análises de atividades, níveis de energia, hidratação e até mesmo o seu humor, transformando dados em decisões inteligentes.</p>
-                </div>
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon">📊</div>
+            <h3>Relatórios Analíticos e Insights de Humor</h3>
+            <p>
+              Tenha acesso a relatórios gerais com análises de atividades,
+              níveis de energia, hidratação e até mesmo o seu humor,
+              transformando dados em decisões inteligentes.
+            </p>
+          </div>
 
-                <!-- Feature 6 -->
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Acompanhamento Direto do Profissional</h3>
-                    <p>Profissionais e clientes podem interagir diretamente com comentários, dúvidas, sugestões e elogios, criando uma relação de confiança e excelência contínua.</p>
-                </div>
-            </div>
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon">💬</div>
+            <h3>Acompanhamento Direto do Profissional</h3>
+            <p>
+              Profissionais e clientes podem interagir diretamente com
+              comentários, dúvidas, sugestões e elogios, criando uma relação de
+              confiança e excelência contínua.
+            </p>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- CTA Final Section -->
     <section class="cta-final">
-        <div class="container">
-            <h2>Pare de Apenas Treinar. Comece a Otimizar.</h2>
-            <p>O MetaPerform é a ferramenta que faltava para transformar esforço em resultado.</p>
-            <a href="https://app.metaperform.com.br" class="btn btn-primary btn-lg">Acessar o App Agora</a>
-        </div>
+      <div class="container">
+        <h2>Pare de Apenas Treinar. Comece a Otimizar.</h2>
+        <p>
+          O MetaPerform é a ferramenta que faltava para transformar esforço em
+          resultado.
+        </p>
+        <a href="https://app.metaperform.com.br" class="btn btn-primary btn-lg"
+          >Acessar o App Agora</a
+        >
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>MetaPerform</h4>
-                    <p>Transformando objetivos em resultados através da tecnologia e inteligência de dados.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Links Rápidos</h4>
-                    <ul>
-                        <li><a href="#features">Funcionalidades</a></li>
-                        <li><a href="#for-users">Para Você</a></li>
-                        <li><a href="#for-professionals">Para Profissionais</a></li>
-                        <li><a href="https://app.metaperform.com.br">Acessar o App</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contato</h4>
-                    <p>Email: <a href="mailto:contato@metaperform.com.br">contato@metaperform.com.br</a></p>
-                    <p>Telefone: <a href="tel:+5511999999999">+55 (11) 99999-9999</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 MetaPerform. Todos os direitos reservados.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>MetaPerform</h4>
+            <p>
+              Transformando objetivos em resultados através da tecnologia e
+              inteligência de dados.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4>Links Rápidos</h4>
+            <ul>
+              <li><a href="#features">Funcionalidades</a></li>
+              <li><a href="#for-users">Para Você</a></li>
+              <li><a href="#for-professionals">Para Profissionais</a></li>
+              <li>
+                <a href="https://app.metaperform.com.br">Acessar o App</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Contato</h4>
+            <p>
+              Email:
+              <a href="mailto:contato@metaperform.com.br"
+                >contato@metaperform.com.br</a
+              >
+            </p>
+            <p>
+              Telefone: <a href="tel:+5511999999999">+55 (11) 99999-9999</a>
+            </p>
+          </div>
         </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 MetaPerform. Todos os direitos reservados.</p>
+        </div>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
-</body>
+    <script src="assets/js/main.js"></script>
+  </body>
 </html>

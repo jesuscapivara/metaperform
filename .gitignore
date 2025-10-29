@@ -31,6 +31,10 @@ yarn-error.log*
 *.backup
 *~
 
+# Arquivos de backup
+*.bak
+*.old
+
 # Arquivos de cache
 .cache/
 *.cache
