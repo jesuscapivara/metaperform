@@ -563,13 +563,46 @@ strong {
    ============================================ */
 
 .hero {
-  background: var(--gradient-hero);
+  background-image: url("../images/hero.wbm");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
   padding: 120px 0 100px;
   min-height: 90vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+}
+
+/* Fixed background no desktop para efeito parallax */
+@media (min-width: 769px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+/* Gradiente overlay sobre a imagem de fundo - combina gradiente principal com efeitos radiais */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-hero),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(0, 208, 132, 0.1) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 107, 53, 0.1) 0%,
+      transparent 50%
+    );
+  z-index: 0;
 }
 
 .hero::before {
@@ -581,27 +614,12 @@ strong {
   height: 800px;
   background: radial-gradient(
     circle,
-    rgba(0, 208, 132, 0.1) 0%,
+    rgba(0, 208, 132, 0.15) 0%,
     transparent 70%
   );
   border-radius: 50%;
   animation: float 20s ease-in-out infinite;
-}
-
-.hero::after {
-  content: "";
-  position: absolute;
-  bottom: -30%;
-  left: -5%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 107, 53, 0.1) 0%,
-    transparent 70%
-  );
-  border-radius: 50%;
-  animation: float 15s ease-in-out infinite reverse;
+  z-index: 1;
 }
 
 .hero .container {
