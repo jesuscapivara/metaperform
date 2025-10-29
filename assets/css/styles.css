@@ -28,8 +28,8 @@
   --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #ff8a5c 100%);
   --gradient-hero: linear-gradient(
     135deg,
-    rgba(0, 208, 132, 0.05) 0%,
-    rgba(255, 107, 53, 0.05) 100%
+    rgba(0, 208, 132, 0.5) 0%,
+    rgba(255, 107, 53, 0.5) 100%
   );
   --gradient-card: linear-gradient(
     135deg,
@@ -80,8 +80,8 @@
     /* Gradientes Dark Mode */
     --gradient-hero: linear-gradient(
       135deg,
-      rgba(0, 208, 132, 0.08) 0%,
-      rgba(255, 107, 53, 0.08) 100%
+      rgba(0, 208, 132, 0.5) 0%,
+      rgba(255, 107, 53, 0.5) 100%
     );
     --gradient-card: linear-gradient(
       135deg,
@@ -111,8 +111,8 @@
   --bg-overlay: rgba(10, 10, 10, 0.9);
   --gradient-hero: linear-gradient(
     135deg,
-    rgba(0, 208, 132, 0.08) 0%,
-    rgba(255, 107, 53, 0.08) 100%
+    rgba(0, 208, 132, 0.5) 0%,
+    rgba(255, 107, 53, 0.5) 100%
   );
   --gradient-card: linear-gradient(
     135deg,
@@ -139,8 +139,8 @@
   --bg-overlay: rgba(255, 255, 255, 0.8);
   --gradient-hero: linear-gradient(
     135deg,
-    rgba(0, 208, 132, 0.05) 0%,
-    rgba(255, 107, 53, 0.05) 100%
+    rgba(0, 208, 132, 0.5) 0%,
+    rgba(255, 107, 53, 0.5) 100%
   );
   --gradient-card: linear-gradient(
     135deg,
@@ -594,12 +594,12 @@ strong {
   background: var(--gradient-hero),
     radial-gradient(
       circle at 80% 20%,
-      rgba(0, 208, 132, 0.1) 0%,
+      rgba(0, 208, 132, 0.5) 0%,
       transparent 50%
     ),
     radial-gradient(
       circle at 20% 80%,
-      rgba(255, 107, 53, 0.1) 0%,
+      rgba(255, 107, 53, 0.5) 0%,
       transparent 50%
     );
   z-index: 0;
@@ -614,7 +614,7 @@ strong {
   height: 800px;
   background: radial-gradient(
     circle,
-    rgba(0, 208, 132, 0.15) 0%,
+    rgba(0, 208, 132, 0.5) 0%,
     transparent 70%
   );
   border-radius: 50%;
