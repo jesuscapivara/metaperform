@@ -18,9 +18,13 @@
 
   // Obter tema salvo ou usar preferência do sistema
   function getTheme() {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark" || savedTheme === "light") {
-      return savedTheme;
+    try {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark" || savedTheme === "light") {
+        return savedTheme;
+      }
+    } catch (e) {
+      // localStorage não disponível
     }
     return getSystemTheme();
   }
@@ -28,22 +32,43 @@
   // Aplicar tema
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {
+      // localStorage não disponível
+    }
     updateThemeToggle(theme);
   }
 
   // Inicializar tema na página
   function initTheme() {
-    const theme = getTheme();
-    applyTheme(theme);
+    // Verificar se o tema já foi aplicado pelo script inline
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+
+    // Se não houver tema aplicado, aplicar agora
+    if (!currentTheme) {
+      const theme = getTheme();
+      applyTheme(theme);
+    } else {
+      // Se já houver tema, apenas atualizar os botões
+      updateThemeToggle(currentTheme);
+    }
 
     // Observar mudanças na preferência do sistema (se não houver tema salvo)
-    if (!localStorage.getItem("theme")) {
+    try {
+      if (!localStorage.getItem("theme")) {
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        mediaQuery.addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            applyTheme(e.matches ? "dark" : "light");
+          }
+        });
+      }
+    } catch (e) {
+      // localStorage não disponível, apenas observar mudanças
       const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
       mediaQuery.addEventListener("change", (e) => {
-        if (!localStorage.getItem("theme")) {
-          applyTheme(e.matches ? "dark" : "light");
-        }
+        applyTheme(e.matches ? "dark" : "light");
       });
     }
   }
@@ -86,10 +111,11 @@
     }
   }
 
-  // Inicializar assim que o DOM estiver pronto
+  // Inicializar assim que o DOM estiver pronto ou imediatamente se já estiver pronto
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initTheme);
   } else {
+    // DOM já está pronto
     initTheme();
   }
 

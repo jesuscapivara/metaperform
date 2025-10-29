@@ -8,6 +8,36 @@
       name="description"
       content="Transforme seus objetivos de fitness e nutrição em resultados reais. A plataforma completa para usuários focados e profissionais que buscam excelência."
     />
+    <!-- Theme initialization script - Must run before CSS -->
+    <script>
+      (function () {
+        function getSystemTheme() {
+          if (
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            return "dark";
+          }
+          return "light";
+        }
+
+        function getTheme() {
+          try {
+            const savedTheme = localStorage.getItem("theme");
+            if (savedTheme === "dark" || savedTheme === "light") {
+              return savedTheme;
+            }
+          } catch (e) {
+            // localStorage não disponível
+          }
+          return getSystemTheme();
+        }
+
+        // Aplicar tema imediatamente antes do CSS carregar
+        const theme = getTheme();
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
     <link rel="stylesheet" href="assets/css/styles.css" />
   </head>
   <body>

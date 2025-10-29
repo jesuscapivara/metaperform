@@ -62,8 +62,9 @@
    DARK MODE VARIABLES
    ============================================ */
 
+/* Media query para dark mode automático - usado apenas se não houver data-theme */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
     /* Cores de Texto - Dark Mode */
     --text-primary: #ffffff;
     --text-secondary: #d1d5db;
@@ -98,7 +99,7 @@
   }
 }
 
-/* Classe para forçar Dark Mode */
+/* Classe para forçar Dark Mode - TEM PRIORIDADE sobre media query */
 [data-theme="dark"] {
   --text-primary: #ffffff;
   --text-secondary: #d1d5db;
@@ -126,7 +127,7 @@
   --shadow-glow: 0 0 30px rgba(0, 208, 132, 0.4);
 }
 
-/* Classe para forçar Light Mode */
+/* Classe para forçar Light Mode - TEM PRIORIDADE sobre media query */
 [data-theme="light"] {
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
