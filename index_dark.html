@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaPerform - Transformando Fitness em Performance Máxima</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-darker: #0A0A0A;
+            --bg-card: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --accent-green: #00D084;
+            --accent-orange: #FF6B35;
+            --border-color: #2A2A2A;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--border-color);
+            z-index: 1000;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .navbar-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 14px;
+        }
+
+        .navbar-menu a:hover {
+            color: var(--accent-green);
+        }
+
+        .navbar-cta {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            color: var(--bg-dark);
+            padding: 12px 28px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--accent-green);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 208, 132, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-headline {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-headline-accent {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            color: var(--bg-dark);
+            padding: 16px 40px;
+            border: none;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-green);
+            padding: 16px 40px;
+            border: 2px solid var(--accent-green);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, rgba(0, 208, 132, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border-left: 6px solid var(--accent-green);
+            border-right: 6px solid var(--accent-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ===== PILLARS SECTION ===== */
+        .pillars {
+            padding: 100px 60px;
+            background: var(--bg-darker);
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .section-headline {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 60px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .pillar {
+            display: flex;
+            gap: 24px;
+            padding: 40px;
+            background: var(--bg-card);
+            border-left: 6px solid var(--accent-green);
+            transition: transform 0.3s ease;
+        }
+
+        .pillar:nth-child(2n) {
+            border-left-color: var(--accent-orange);
+        }
+
+        .pillar:hover {
+            transform: translateX(10px);
+        }
+
+        .pillar-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .pillar:nth-child(2n) .pillar-icon {
+            background: var(--accent-orange);
+        }
+
+        .pillar-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .pillar-content p {
+            font-size: 15px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            padding: 100px 60px;
+            background: var(--bg-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border: 2px solid var(--border-color);
+            border-top: 4px solid var(--accent-green);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:nth-child(2n) {
+            border-top-color: var(--accent-orange);
+        }
+
+        .feature-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-10px);
+        }
+
+        .feature-number {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+        }
+
+        .feature-card:nth-child(2n) .feature-number {
+            color: var(--accent-orange);
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats {
+            padding: 80px 60px;
+            background: var(--bg-darker);
+            border-top: 2px solid var(--border-color);
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-box {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            padding: 80px 60px;
+            background: linear-gradient(135deg, rgba(0, 208, 132, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 2px solid var(--border-color);
+            margin: 80px 60px;
+            text-align: center;
+        }
+
+        .cta-headline {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--bg-darker);
+            border-top: 2px solid var(--border-color);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-green);
+        }
+
+        .footer-bottom {
+            grid-column: 1 / -1;
+            border-top: 1px solid var(--border-color);
+            padding-top: 30px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* ===== SCROLL TO TOP ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-orange) 100%);
+            color: var(--bg-dark);
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: transform 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        .scroll-to-top.show {
+            display: flex;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 30px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 60px 30px;
+                gap: 40px;
+                margin-top: 60px;
+            }
+
+            .hero-headline {
+                font-size: 40px;
+            }
+
+            .hero-image-container {
+                height: 300px;
+            }
+
+            .pillars {
+                padding: 60px 30px;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                padding: 60px 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 30px;
+            }
+
+            .cta-section {
+                margin: 40px 30px;
+                padding: 40px 30px;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="navbar-logo">Meta<span style="color: var(--accent-green);">Perform</span></div>
+        <div class="navbar-menu">
+            <a href="#features">Funcionalidades</a>
+            <a href="#stats">Sobre</a>
+            <a href="#footer">Contato</a>
+            <button class="navbar-cta">Acessar App</button>
+        </div>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-headline">
+                Transforme Seu <span class="hero-headline-accent">Desempenho</span>
+            </h1>
+            <p class="hero-subtitle">
+                A plataforma completa que unifica fitness, nutrição e acompanhamento profissional em um único lugar. Seus resultados merecem mais que um app isolado.
+            </p>
+            <div class="hero-ctas">
+                <button class="btn-primary">Começar Agora</button>
+                <button class="btn-secondary">Saiba Mais</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&h=600&fit=crop" alt="MetaPerform App">
+            </div>
+        </div>
+    </section>
+
+    <!-- PILLARS SECTION -->
+    <section class="pillars">
+        <h2 class="section-headline">Os 4 Pilares do MetaPerform</h2>
+        <div class="pillars-grid">
+            <div class="pillar">
+                <div class="pillar-icon">📔</div>
+                <div class="pillar-content">
+                    <h3>Diário Inteligente</h3>
+                    <p>Registro simplificado de refeições, exercícios e hidratação com resumo automático baseado no seu perfil.</p>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">🎯</div>
+                <div class="pillar-content">
+                    <h3>Gestão Completa</h3>
+                    <p>Cardápios personalizados, suplementos, listas de compras e controle de custos tudo integrado.</p>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">💬</div>
+                <div class="pillar-content">
+                    <h3>Conexão Profissional</h3>
+                    <p>Acompanhamento direto com seu personal trainer ou nutricionista com comentários e feedback em tempo real.</p>
+                </div>
+            </div>
+
+            <div class="pillar">
+                <div class="pillar-icon">📊</div>
+                <div class="pillar-content">
+                    <h3>Insights Preditivos</h3>
+                    <p>Relatórios analíticos que transformam dados de humor, energia e atividade em decisões estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="features" id="features">
+        <h2 class="section-headline">Funcionalidades Essenciais</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-number">1</div>
+                <h3>Diário Inteligente</h3>
+                <p>Resumo automático de refeições, exercícios e hidratação personalizada para seu perfil.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">2</div>
+                <h3>Cardápios Personalizados</h3>
+                <p>Crie cardápios completos para dias de treino e descanso com flexibilidade total.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">3</div>
+                <h3>Gestão de Suplementos</h3>
+                <p>Acompanhe estoque, uso e custos com estatísticas detalhadas de consumo.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">4</div>
+                <h3>Listas de Compras</h3>
+                <p>Geração automática baseada em cardápios com controle de orçamento integrado.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">5</div>
+                <h3>Relatórios Analíticos</h3>
+                <p>Análises profundas de humor, energia, hidratação e progresso com visualizações claras.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-number">6</div>
+                <h3>Acompanhamento Profissional</h3>
+                <p>Comunicação direta com seu profissional com comentários, sugestões e elogios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats" id="stats">
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Usuários Ativos</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Profissionais</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Satisfação</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">4.5</div>
+                <div class="stat-label">Registros/Dia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <h2 class="cta-headline">Pronto para Transformar Seus Resultados?</h2>
+        <p class="cta-text">
+            Junte-se a milhares de usuários que já estão alcançando seus objetivos com MetaPerform. Começar é gratuito.
+        </p>
+        <button class="btn-primary">Acessar App Agora</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="footer-section">
+            <h4>Produto</h4>
+            <ul>
+                <li><a href="#">Funcionalidades</a></li>
+                <li><a href="#">Preços</a></li>
+                <li><a href="#">Segurança</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Empresa</h4>
+            <ul>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Carreiras</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Recursos</h4>
+            <ul>
+                <li><a href="#">Documentação</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#">Privacidade</a></li>
+                <li><a href="#">Termos</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            © 2025 MetaPerform. Todos os direitos reservados. | Transformando Objetivos em Resultados
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <button class="scroll-to-top" id="scrollToTop">↑</button>
+
+    <script>
+        // Scroll to top button
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.pillar, .feature-card, .stat-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.style.borderBottomColor = 'var(--accent-green)';
+            } else {
+                navbar.style.borderBottomColor = 'var(--border-color)';
+            }
+        });
+    </script>
+</body>
+</html>
