@@ -225,64 +225,9 @@ document
   });
 
 // ============================================
-// COUNTER ANIMATION FOR TRUST SECTION
+// TRUST SECTION - Cards now use CSS animations
 // ============================================
-
-function animateCounter(element, target, duration = 2000) {
-  let current = 0;
-  const increment = target / (duration / 16);
-  const interval = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(interval);
-    }
-
-    // Preservar o formato original (+ ou %)
-    const originalText = element.dataset.originalText || element.textContent;
-    const suffix = originalText.includes("%")
-      ? "%"
-      : originalText.includes("+")
-      ? "+"
-      : "";
-    element.textContent = Math.floor(current).toLocaleString("pt-BR") + suffix;
-  }, 16);
-}
-
-// Trigger counter animation when trust section is visible
-const trustSection = document.querySelector(".trust-section");
-let counterAnimated = false;
-
-if (trustSection) {
-  // Salvar textos originais
-  const trustNumbers = document.querySelectorAll(".trust-number");
-  trustNumbers.forEach((el) => {
-    el.dataset.originalText = el.textContent;
-  });
-
-  const trustObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && !counterAnimated) {
-          counterAnimated = true;
-          const trustNumbers = document.querySelectorAll(".trust-number");
-
-          trustNumbers.forEach((el, index) => {
-            const text = el.dataset.originalText || el.textContent;
-            const number = parseInt(text.replace(/\D/g, ""));
-
-            setTimeout(() => {
-              animateCounter(el, number, 2000);
-            }, index * 200);
-          });
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-
-  trustObserver.observe(trustSection);
-}
+// Trust cards animations are handled via CSS in styles.css
 
 // ============================================
 // SCROLL TO TOP BUTTON
